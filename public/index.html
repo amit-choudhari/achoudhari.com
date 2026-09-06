@@ -3,44 +3,193 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Amit Choudhari — Systems & Microarchitectural Security Researcher">
-  <title>Amit Choudhari</title>
+  <meta name="description" content="Amit Choudhari — systems and microarchitectural security researcher at CISPA.">
+  <meta name="theme-color" content="#090909">
+  <meta property="og:title" content="Amit Choudhari">
+  <meta property="og:description" content="Systems & Microarchitectural Security Researcher">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://achoudhari.com/">
+  <link rel="canonical" href="https://achoudhari.com/">
+  <title>Amit Choudhari — Systems & Microarchitectural Security</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <main>
-    <header>
-      <p class="eyebrow">Systems &amp; Microarchitectural Security</p>
-      <h1>Amit Choudhari</h1>
-      <p class="intro">
-        I am a security researcher working on systems and microarchitectural
-        security, including side channels, operating-system security, and
-        hardware–software interactions.
-      </p>
-    </header>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="wordmark" href="#top" aria-label="Amit Choudhari, home">AC</a>
+      <nav aria-label="Primary navigation">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#background">Background</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <section>
-      <h2>Research</h2>
-      <p>
-        My work explores security at the boundary between hardware and systems:
-        understanding undocumented hardware behavior, finding new side channels,
-        and building secure systems.
-      </p>
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <p class="kicker">Systems &amp; Microarchitectural Security Researcher</p>
+      <h1 id="hero-title">Amit Choudhari</h1>
+      <div class="hero-copy">
+        <p>
+          I am a PhD student and research assistant at
+          <a href="https://cispa.de/" rel="external">CISPA — Helmholtz Center for Information Security</a>,
+          advised by Prof. Christian Rossow. My research spans microarchitectural security,
+          systems security, network security, trusted execution, and hardware–software security.
+        </p>
+        <p>
+          Before my PhD, I worked on secure and embedded systems in industry, including ARM
+          TrustZone, hypervisors, secure I/O paths, Linux, firmware, and embedded platforms.
+        </p>
+      </div>
+      <div class="hero-links" aria-label="Profile links">
+        <a href="mailto:amit.choudhari@cispa.de">Email</a>
+        <a href="https://github.com/amit-choudhari" rel="me external">GitHub</a>
+        <a href="https://orcid.org/0000-0002-5578-7061" rel="me external">ORCID</a>
+        <a href="https://www.linkedin.com/in/amit-choudhari-3b560a76" rel="me external">LinkedIn</a>
+      </div>
     </section>
 
-    <section>
-      <h2>Website</h2>
-      <p>
-        This site is intentionally minimal for now. Publications, projects,
-        research notes, and my CV will be added here.
-      </p>
+    <section id="research" class="section shell" aria-labelledby="research-title">
+      <div class="section-label">
+        <span>01</span>
+        <h2 id="research-title">Research</h2>
+      </div>
+      <div class="section-content research-copy">
+        <p class="lead">
+          I study security at the boundary between hardware and software: how low-level system
+          behavior creates security problems, how those behaviors can be measured and understood,
+          and how systems can be designed to reduce the resulting attack surface.
+        </p>
+        <div class="topics" aria-label="Research interests">
+          <span>Microarchitectural security</span>
+          <span>Systems security</span>
+          <span>Network security</span>
+          <span>Trusted execution</span>
+          <span>Hardware–software security</span>
+        </div>
+      </div>
     </section>
 
-    <footer>
-      <a href="mailto:amit.choudhari@cispa.de">Email</a>
-      <span aria-hidden="true">·</span>
-      <span>achoudhari.com</span>
-    </footer>
+    <section id="publications" class="section shell" aria-labelledby="publications-title">
+      <div class="section-label">
+        <span>02</span>
+        <h2 id="publications-title">Publications</h2>
+      </div>
+      <div class="section-content publications">
+        <article class="publication">
+          <div class="pub-meta"><span>2026</span><span>USENIX Security</span></div>
+          <h3>Memclave: Secure In-Memory Enclave for Untrusted Hosts</h3>
+          <p class="authors"><strong>Amit Choudhari</strong>, Fabian van Rissenbeck, Christian Rossow</p>
+          <a class="paper-link" href="https://www.usenix.org/conference/usenixsecurity26/presentation/choudhari" rel="external">Paper <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="publication">
+          <div class="pub-meta"><span>2025</span><span>ESORICS</span></div>
+          <h3>NICraft: Malicious NIC Firmware-Based Cache Side-Channel Attack</h3>
+          <p class="authors"><strong>Amit Choudhari</strong>, Shorya Kumar, Christian Rossow</p>
+          <a class="paper-link" href="https://doi.org/10.1007/978-3-032-07894-0_4" rel="external">Paper <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="publication">
+          <div class="pub-meta"><span>2023</span><span>ACM CCS</span></div>
+          <h3>FetchBench: Systematic Identification and Characterization of Proprietary Prefetchers</h3>
+          <p class="authors">Till Schlüter, <strong>Amit Choudhari</strong>, Lorenz Hetterich, Leon Trampert, Hamed Nemati, Ahmad Ibrahim, Michael Schwarz, Christian Rossow, Nils Ole Tippenhauer</p>
+          <a class="paper-link" href="https://doi.org/10.1145/3576915.3623124" rel="external">Paper <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="publication">
+          <div class="pub-meta"><span>2022</span><span>ASHES</span></div>
+          <h3>SpecDefender: Transient Execution Attack Defender Using Performance Counters</h3>
+          <p class="authors"><strong>Amit Choudhari</strong>, Sylvain Guilley, Khaled Karray</p>
+          <a class="paper-link" href="https://doi.org/10.1145/3560834.3563830" rel="external">Paper <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="publication">
+          <div class="pub-meta"><span>2021</span><span>NICS</span></div>
+          <h3>CRYScanner: Finding Cryptographic Libraries Misuse</h3>
+          <p class="authors"><strong>Amit Choudhari</strong>, Sylvain Guilley, Khaled Karray</p>
+          <a class="paper-link" href="https://doi.org/10.1109/NICS54270.2021.9701469" rel="external">Paper <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="background" class="section shell" aria-labelledby="background-title">
+      <div class="section-label">
+        <span>03</span>
+        <h2 id="background-title">Background</h2>
+      </div>
+      <div class="section-content background-grid">
+        <div>
+          <h3 class="subheading">Experience</h3>
+          <div class="timeline">
+            <div class="timeline-row">
+              <time>2022—now</time>
+              <div><strong>CISPA</strong><span>Research Assistant · PhD student</span></div>
+            </div>
+            <div class="timeline-row">
+              <time>2022</time>
+              <div><strong>ETH Zurich</strong><span>Academic Guest</span></div>
+            </div>
+            <div class="timeline-row">
+              <time>2021—22</time>
+              <div><strong>Secure-IC</strong><span>Master's Research</span></div>
+            </div>
+            <div class="timeline-row">
+              <time>2017—20</time>
+              <div><strong>Qualcomm</strong><span>Senior Software Engineer · Secure systems</span></div>
+            </div>
+            <div class="timeline-row">
+              <time>2015—17</time>
+              <div><strong>embedUR Systems</strong><span>Embedded Software Engineer</span></div>
+            </div>
+            <div class="timeline-row">
+              <time>2013—15</time>
+              <div><strong>IIT Madras</strong><span>Research Associate</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subheading">Education</h3>
+          <div class="timeline">
+            <div class="timeline-row">
+              <time>2022—now</time>
+              <div><strong>PhD, System Security</strong><span>CISPA — Helmholtz Center for Information Security</span></div>
+            </div>
+            <div class="timeline-row">
+              <time>2020—22</time>
+              <div><strong>MSc, Cyberphysical Systems</strong><span>École Polytechnique (IP Paris)</span></div>
+            </div>
+            <div class="timeline-row">
+              <time>2009—13</time>
+              <div><strong>BE, Electronics Engineering</strong><span>Ramrao Adik Institute of Technology · Mumbai University</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section shell" aria-labelledby="contact-title">
+      <p class="kicker">Contact</p>
+      <h2 id="contact-title">Research, systems, and security.</h2>
+      <p>
+        The simplest way to reach me is by email at
+        <a href="mailto:amit.choudhari@cispa.de">amit.choudhari@cispa.de</a>.
+      </p>
+      <div class="hero-links">
+        <a href="https://github.com/amit-choudhari" rel="me external">GitHub</a>
+        <a href="https://orcid.org/0000-0002-5578-7061" rel="me external">ORCID</a>
+        <a href="https://www.linkedin.com/in/amit-choudhari-3b560a76" rel="me external">LinkedIn</a>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <span>© 2026 Amit Choudhari</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
 </body>
 </html>
