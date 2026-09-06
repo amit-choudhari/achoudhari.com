@@ -79,9 +79,9 @@ nav a { color: var(--muted); text-decoration: none; }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0,1fr) 220px;
-  gap: clamp(48px,8vw,96px);
-  align-items: center;
+  grid-template-columns: minmax(0,1fr) 168px;
+  gap: clamp(44px,6vw,72px);
+  align-items: start;
   padding-top: clamp(84px,10vw,124px);
   padding-bottom: clamp(74px,9vw,108px);
   border-bottom: 1px solid var(--line);
@@ -126,10 +126,11 @@ h1 {
 .hero-links a { color: var(--muted); }
 
 .portrait {
-  margin: 0;
-  width: 100%;
-  max-width: 220px;
+  margin: 28px 0 0;
+  width: 168px;
+  max-width: 168px;
   justify-self: end;
+  align-self: start;
 }
 
 .portrait-monogram {
@@ -209,8 +210,8 @@ h1 {
 @media (max-width: 800px) {
   .shell { width: min(100% - 38px,var(--max)); }
   .site-header nav a:nth-child(3) { display: none; }
-  .hero { grid-template-columns: minmax(0,1fr) 170px; gap: 40px; }
-  .portrait { max-width: 170px; }
+  .hero { grid-template-columns: minmax(0,1fr) 168px; gap: 36px; }
+  .portrait { width: 168px; max-width: 168px; margin-top: 28px; }
   .section { grid-template-columns: 1fr; gap: 28px; }
   .education-grid { grid-template-columns: 1fr; }
   .education-grid > div { padding-right: 0; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
@@ -220,8 +221,8 @@ h1 {
   .nav-wrap { height: 60px; }
   nav { gap: 16px; font-size: .78rem; }
   .site-header nav a:nth-child(3), .site-header nav a:nth-child(4) { display: none; }
-  .hero { grid-template-columns: 1fr; gap: 34px; padding-top: 72px; }
-  .portrait { width: 130px; justify-self: start; order: -1; }
+  .hero { grid-template-columns: 1fr; gap: 24px; padding-top: 72px; }
+  .portrait { width: 130px; max-width: 130px; justify-self: start; order: -1; margin: 0 0 2px; }
   .portrait-monogram { font-size: 2.2rem; }
   h1 { font-size: clamp(2.65rem,14vw,3.55rem); }
   .focus-row { grid-template-columns: 1fr; gap: 7px; }
