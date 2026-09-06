@@ -20,9 +20,8 @@
       <a class="wordmark" href="#top" aria-label="Amit Choudhari, home">AC</a>
       <nav aria-label="Primary navigation">
         <a href="#research">Research</a>
-        <a href="#work">Selected work</a>
-        <a href="#experience">Experience</a>
         <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
       </nav>
     </div>
   </header>
@@ -69,7 +68,7 @@
     <section id="research" class="section shell" aria-labelledby="research-title">
       <div class="section-label">
         <span>01</span>
-        <h2 id="research-title">Research focus</h2>
+        <h2 id="research-title">Research interests</h2>
       </div>
       <div class="section-content focus-list">
         <div class="focus-row">
@@ -81,38 +80,72 @@
           <p>Security problems that emerge from interactions between operating systems, network stacks, and hardware.</p>
         </div>
         <div class="focus-row">
-          <h3>Trusted &amp; emerging systems</h3>
+          <h3>Trusted execution &amp; hardware security</h3>
           <p>Trusted execution, hypervisors, processing-in-memory, SmartNICs, and hardware–software isolation.</p>
         </div>
         <p class="technical"><strong>Low-level systems:</strong> C/C++, Python, Linux kernel, TrustZone/TEE, hypervisors, firmware, GDB/JTAG.</p>
       </div>
     </section>
 
-    <section id="work" class="section shell" aria-labelledby="work-title">
+    <section id="publications" class="section shell" aria-labelledby="publications-title">
       <div class="section-label">
         <span>02</span>
-        <h2 id="work-title">Selected work</h2>
+        <h2 id="publications-title">Publications</h2>
       </div>
-      <div class="section-content selected-work">
-        <article class="work-item">
-          <p class="work-venue">USENIX Security 2026</p>
-          <h3>Memclave</h3>
-          <p>Software-only code integrity and data confidentiality for commodity UPMEM PIM using a TPM-attested hypervisor and an in-PIM trusted loader.</p>
-          <div class="work-links"><a href="https://www.usenix.org/conference/usenixsecurity26/presentation/choudhari" rel="external">paper ↗</a></div>
+      <div class="section-content publications">
+        <article class="publication">
+          <div class="pub-meta"><span>2026</span><span>USENIX Security</span></div>
+          <h3>Memclave: Secure In-Memory Enclave for Untrusted Hosts</h3>
+          <p class="authors"><strong>Amit Choudhari</strong>, Fabian van Rissenbeck, Christian Rossow</p>
+          <p class="publication-summary">A software-only framework that adds code integrity and data confidentiality to commodity UPMEM PIM using a TPM-attested hypervisor and an in-PIM trusted loader.</p>
+          <div class="publication-links">
+            <a href="https://syssec.cispa.de/papers/memclave-usenix2026.pdf">PDF</a>
+            <a href="https://github.com/fabianvanrissenbeck/memclave" rel="external">GitHub</a>
+          </div>
         </article>
-        <article class="work-item">
-          <p class="work-venue">ESORICS 2025</p>
-          <h3>NICraft</h3>
-          <p>Shows that malicious NIC firmware can exploit Linux IP reassembly to mount fine-grained host cache side channels, including keystroke-activity detection at over 96% precision.</p>
-          <div class="work-links"><a href="https://doi.org/10.1007/978-3-032-07894-0_4" rel="external">paper ↗</a></div>
+
+        <article class="publication">
+          <div class="pub-meta"><span>2025</span><span>ESORICS</span></div>
+          <h3>NICraft: Malicious NIC Firmware-Based Cache Side-Channel Attack</h3>
+          <p class="authors"><strong>Amit Choudhari</strong>, Shorya Kumar, Christian Rossow</p>
+          <p class="publication-summary">Uses Linux IP reassembly to let malicious NIC firmware mount cache side channels on commodity systems, including keystroke-activity detection at over 96% precision.</p>
+          <div class="publication-links">
+            <a href="https://cispa.saarland/group/rossow/papers/nicraft-esorics2025.pdf">PDF</a>
+            <a href="https://github.com/amit-choudhari/NICraft" rel="external">GitHub</a>
+            <a href="https://raw.githubusercontent.com/amit-choudhari/NICraft/main/slides/NICraft_esorics.pdf">Slides</a>
+          </div>
         </article>
-        <article class="work-item">
-          <p class="work-venue">ACM CCS 2023</p>
-          <h3>FetchBench</h3>
-          <p>A cross-platform framework that characterized undocumented prefetchers on 19 ARM and x86-64 CPUs and uncovered a previously unknown replay-based prefetcher on Cortex-A72.</p>
-          <div class="work-links">
-            <a href="https://doi.org/10.1145/3576915.3623124" rel="external">paper ↗</a>
-            <a href="https://github.com/scy-phy/FetchBench" rel="external">code ↗</a>
+
+        <article class="publication">
+          <div class="pub-meta"><span>2023</span><span>ACM CCS</span></div>
+          <h3>FetchBench: Systematic Identification and Characterization of Proprietary Prefetchers</h3>
+          <p class="authors">Till Schlüter, <strong>Amit Choudhari</strong>, Lorenz Hetterich, Leon Trampert, Hamed Nemati, Ahmad Ibrahim, Michael Schwarz, Christian Rossow, Nils Ole Tippenhauer</p>
+          <p class="publication-summary">A cross-platform framework for identifying and characterizing undocumented hardware prefetchers; evaluated on 19 ARM and x86-64 CPUs and used to uncover a replay-based prefetcher on Cortex-A72.</p>
+          <div class="publication-links">
+            <a href="https://tschlueter.com/research/publications/23-fetchbench/ccs23-fetchbench.pdf">PDF</a>
+            <a href="https://github.com/scy-phy/FetchBench" rel="external">GitHub</a>
+            <a href="https://tschlueter.com/research/publications/23-fetchbench/ccs23-fetchbench-slides.pdf">Slides</a>
+          </div>
+        </article>
+
+        <article class="publication">
+          <div class="pub-meta"><span>2022</span><span>ASHES @ CCS</span></div>
+          <h3>SpecDefender: Transient Execution Attack Defender Using Performance Counters</h3>
+          <p class="authors"><strong>Amit Choudhari</strong>, Sylvain Guilley, Khaled Karray</p>
+          <p class="publication-summary">Dynamically detects Spectre activity using hardware performance counters and restarts the application with Spectre defenses when an attack is detected.</p>
+          <div class="publication-links">
+            <a href="https://github.com/amit-choudhari/Specdefender" rel="external">GitHub</a>
+          </div>
+        </article>
+
+        <article class="publication">
+          <div class="pub-meta"><span>2021</span><span>NICS</span></div>
+          <h3>CRYScanner: Finding Cryptographic Libraries Misuse</h3>
+          <p class="authors"><strong>Amit Choudhari</strong>, Sylvain Guilley, Khaled Karray</p>
+          <p class="publication-summary">A generic analysis tool for detecting cryptographic-library misuse, including unsafe call sequences and parameters.</p>
+          <div class="publication-links">
+            <a href="https://eprint.iacr.org/2022/029.pdf">PDF</a>
+            <a href="https://github.com/amit-choudhari/cryscanner" rel="external">GitHub</a>
           </div>
         </article>
       </div>
@@ -173,45 +206,6 @@
             <div><span>2009—13</span><strong>BE, Electronics Engineering</strong><p>Mumbai University</p></div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="publications" class="section shell" aria-labelledby="publications-title">
-      <div class="section-label">
-        <span>04</span>
-        <h2 id="publications-title">Publications</h2>
-      </div>
-      <div class="section-content publications">
-        <article class="publication">
-          <div class="pub-meta"><span>2026</span><span>USENIX Security</span></div>
-          <h3>Memclave: Secure In-Memory Enclave for Untrusted Hosts</h3>
-          <p class="authors"><strong>Amit Choudhari</strong>, Fabian van Rissenbeck, Christian Rossow</p>
-          <a class="paper-link" href="https://www.usenix.org/conference/usenixsecurity26/presentation/choudhari" rel="external">paper ↗</a>
-        </article>
-        <article class="publication">
-          <div class="pub-meta"><span>2025</span><span>ESORICS</span></div>
-          <h3>NICraft: Malicious NIC Firmware-Based Cache Side-Channel Attack</h3>
-          <p class="authors"><strong>Amit Choudhari</strong>, Shorya Kumar, Christian Rossow</p>
-          <a class="paper-link" href="https://doi.org/10.1007/978-3-032-07894-0_4" rel="external">paper ↗</a>
-        </article>
-        <article class="publication">
-          <div class="pub-meta"><span>2023</span><span>ACM CCS</span></div>
-          <h3>FetchBench: Systematic Identification and Characterization of Proprietary Prefetchers</h3>
-          <p class="authors">Till Schlüter, <strong>Amit Choudhari</strong>, Lorenz Hetterich, Leon Trampert, Hamed Nemati, Ahmad Ibrahim, Michael Schwarz, Christian Rossow, Nils Ole Tippenhauer</p>
-          <div class="pub-links"><a class="paper-link" href="https://doi.org/10.1145/3576915.3623124" rel="external">paper ↗</a><a class="paper-link" href="https://github.com/scy-phy/FetchBench" rel="external">code ↗</a></div>
-        </article>
-        <article class="publication">
-          <div class="pub-meta"><span>2022</span><span>ASHES</span></div>
-          <h3>SpecDefender: Transient Execution Attack Defender Using Performance Counters</h3>
-          <p class="authors"><strong>Amit Choudhari</strong>, Sylvain Guilley, Khaled Karray</p>
-          <div class="pub-links"><a class="paper-link" href="https://doi.org/10.1145/3560834.3563830" rel="external">paper ↗</a><a class="paper-link" href="https://github.com/amit-choudhari/Specdefender" rel="external">code ↗</a></div>
-        </article>
-        <article class="publication">
-          <div class="pub-meta"><span>2021</span><span>NICS</span></div>
-          <h3>CRYScanner: Finding Cryptographic Libraries Misuse</h3>
-          <p class="authors"><strong>Amit Choudhari</strong>, Sylvain Guilley, Khaled Karray</p>
-          <a class="paper-link" href="https://doi.org/10.1109/NICS54270.2021.9701469" rel="external">paper ↗</a>
-        </article>
       </div>
     </section>
   </main>
