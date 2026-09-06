@@ -19,61 +19,160 @@
       <a class="wordmark" href="#top" aria-label="Amit Choudhari, home">AC</a>
       <nav aria-label="Primary navigation">
         <a href="#research">Research</a>
+        <a href="#work">Selected work</a>
+        <a href="#experience">Experience</a>
         <a href="#publications">Publications</a>
-        <a href="#background">Background</a>
-        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
     <section class="hero shell" aria-labelledby="hero-title">
-      <p class="kicker">Systems &amp; Microarchitectural Security Researcher</p>
-      <h1 id="hero-title">Amit Choudhari</h1>
-      <div class="hero-copy">
-        <p>
-          I am a PhD student and research assistant at
-          <a href="https://cispa.de/" rel="external">CISPA — Helmholtz Center for Information Security</a>,
-          advised by Prof. Christian Rossow. My research spans microarchitectural security,
-          systems security, network security, trusted execution, and hardware–software security.
-        </p>
-        <p>
-          Before my PhD, I worked on secure and embedded systems in industry, including ARM
-          TrustZone, hypervisors, secure I/O paths, Linux, firmware, and embedded platforms.
-        </p>
+      <div class="hero-main">
+        <p class="kicker">Systems &amp; Microarchitectural Security Researcher</p>
+        <h1 id="hero-title">Amit Choudhari</h1>
+        <p class="role">PhD Student · CISPA Helmholtz Center for Information Security</p>
+        <div class="hero-copy">
+          <p>
+            I am a PhD student at CISPA, advised by Prof. Christian Rossow, working on
+            microarchitectural and systems security. My recent research covers secure in-memory
+            computing, malicious SmartNICs, and reverse-engineering undocumented CPU prefetchers.
+          </p>
+          <p>
+            Before my PhD, I worked on trusted execution and embedded systems, including ARM
+            TrustZone and hypervisor-based security at Qualcomm.
+          </p>
+        </div>
+        <p class="availability"><span aria-hidden="true"></span>Open to research &amp; R&amp;D opportunities in systems and hardware security.</p>
+        <div class="hero-links" aria-label="Profile links">
+          <a href="mailto:amit.choudhari@cispa.de">Email</a>
+          <a href="https://github.com/amit-choudhari" rel="me external">GitHub</a>
+          <a href="https://orcid.org/0000-0002-5578-7061" rel="me external">ORCID</a>
+          <a href="https://dblp.org/pid/313/8120" rel="me external">DBLP</a>
+          <a href="https://www.linkedin.com/in/amit-choudhari-3b560a76" rel="me external">LinkedIn</a>
+        </div>
       </div>
-      <div class="hero-links" aria-label="Profile links">
-        <a href="mailto:amit.choudhari@cispa.de">Email</a>
-        <a href="https://github.com/amit-choudhari" rel="me external">GitHub</a>
-        <a href="https://orcid.org/0000-0002-5578-7061" rel="me external">ORCID</a>
-        <a href="https://www.linkedin.com/in/amit-choudhari-3b560a76" rel="me external">LinkedIn</a>
-      </div>
+
+      <aside class="portrait" aria-label="Portrait placeholder">
+        <!-- Replace this monogram with a headshot later, e.g.
+             <img src="/amit.jpg" alt="Amit Choudhari"> -->
+        <div class="portrait-monogram" aria-hidden="true">AC</div>
+      </aside>
     </section>
 
     <section id="research" class="section shell" aria-labelledby="research-title">
       <div class="section-label">
         <span>01</span>
-        <h2 id="research-title">Research</h2>
+        <h2 id="research-title">Research focus</h2>
       </div>
-      <div class="section-content research-copy">
-        <p class="lead">
-          I study security at the boundary between hardware and software: how low-level system
-          behavior creates security problems, how those behaviors can be measured and understood,
-          and how systems can be designed to reduce the resulting attack surface.
-        </p>
-        <div class="topics" aria-label="Research interests">
-          <span>Microarchitectural security</span>
-          <span>Systems security</span>
-          <span>Network security</span>
-          <span>Trusted execution</span>
-          <span>Hardware–software security</span>
+      <div class="section-content focus-list">
+        <div class="focus-row">
+          <h3>Microarchitectural security</h3>
+          <p>Side channels, undocumented CPU behavior, hardware prefetchers, and low-level reverse engineering.</p>
+        </div>
+        <div class="focus-row">
+          <h3>Systems &amp; network security</h3>
+          <p>Security problems that emerge from interactions between operating systems, network stacks, and hardware.</p>
+        </div>
+        <div class="focus-row">
+          <h3>Trusted &amp; emerging systems</h3>
+          <p>Trusted execution, hypervisors, processing-in-memory, SmartNICs, and hardware–software isolation.</p>
+        </div>
+        <p class="technical"><strong>Low-level systems:</strong> C/C++, Python, Linux kernel, TrustZone/TEE, hypervisors, firmware, GDB/JTAG.</p>
+      </div>
+    </section>
+
+    <section id="work" class="section shell" aria-labelledby="work-title">
+      <div class="section-label">
+        <span>02</span>
+        <h2 id="work-title">Selected work</h2>
+      </div>
+      <div class="section-content selected-work">
+        <article class="work-item">
+          <p class="work-venue">USENIX Security 2026</p>
+          <h3>Memclave</h3>
+          <p>Software-only code integrity and data confidentiality for commodity UPMEM PIM using a TPM-attested hypervisor and an in-PIM trusted loader.</p>
+          <div class="work-links"><a href="https://www.usenix.org/conference/usenixsecurity26/presentation/choudhari" rel="external">paper ↗</a></div>
+        </article>
+        <article class="work-item">
+          <p class="work-venue">ESORICS 2025</p>
+          <h3>NICraft</h3>
+          <p>Shows that malicious NIC firmware can exploit Linux IP reassembly to mount fine-grained host cache side channels, including keystroke-activity detection at over 96% precision.</p>
+          <div class="work-links"><a href="https://doi.org/10.1007/978-3-032-07894-0_4" rel="external">paper ↗</a></div>
+        </article>
+        <article class="work-item">
+          <p class="work-venue">ACM CCS 2023</p>
+          <h3>FetchBench</h3>
+          <p>A cross-platform framework that characterized undocumented prefetchers on 19 ARM and x86-64 CPUs and uncovered a previously unknown replay-based prefetcher on Cortex-A72.</p>
+          <div class="work-links">
+            <a href="https://doi.org/10.1145/3576915.3623124" rel="external">paper ↗</a>
+            <a href="https://github.com/scy-phy/FetchBench" rel="external">code ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section shell" aria-labelledby="experience-title">
+      <div class="section-label">
+        <span>03</span>
+        <h2 id="experience-title">Experience</h2>
+      </div>
+      <div class="section-content experience-list">
+        <div class="experience-row">
+          <time>2022—now</time>
+          <div>
+            <h3>CISPA</h3>
+            <p class="experience-role">Research Assistant · PhD Student</p>
+            <p>Microarchitectural and network security research with Prof. Christian Rossow.</p>
+          </div>
+        </div>
+        <div class="experience-row featured-experience">
+          <time>2017—20</time>
+          <div>
+            <h3>Qualcomm</h3>
+            <p class="experience-role">Senior Software Engineer</p>
+            <p>ARM TrustZone and hypervisor-based security, including secure camera, secure UI, authentication, and protected data paths.</p>
+          </div>
+        </div>
+        <div class="experience-row">
+          <time>2022</time>
+          <div>
+            <h3>ETH Zurich</h3>
+            <p class="experience-role">Academic Guest</p>
+            <p>RISC-V security work protecting userspace applications from higher-privileged software.</p>
+          </div>
+        </div>
+        <div class="experience-row">
+          <time>2021—22</time>
+          <div>
+            <h3>Secure-IC</h3>
+            <p class="experience-role">Master's Research</p>
+            <p>Cryptographic-library misuse analysis and dynamic detection/mitigation of Spectre attacks.</p>
+          </div>
+        </div>
+        <div class="experience-row">
+          <time>2013—17</time>
+          <div>
+            <h3>Earlier engineering</h3>
+            <p class="experience-role">embedUR Systems · IIT Madras</p>
+            <p>Embedded Linux and networking, secure boot, TEE/tamper protection, device drivers, and hardware debugging.</p>
+          </div>
+        </div>
+
+        <div class="education-block">
+          <h3 class="subheading">Education</h3>
+          <div class="education-grid">
+            <div><span>2022—now</span><strong>PhD, System Security</strong><p>CISPA</p></div>
+            <div><span>2020—22</span><strong>MSc, Cyberphysical Systems</strong><p>École Polytechnique (IP Paris)</p></div>
+            <div><span>2009—13</span><strong>BE, Electronics Engineering</strong><p>Mumbai University</p></div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="publications" class="section shell" aria-labelledby="publications-title">
       <div class="section-label">
-        <span>02</span>
+        <span>04</span>
         <h2 id="publications-title">Publications</h2>
       </div>
       <div class="section-content publications">
@@ -81,114 +180,48 @@
           <div class="pub-meta"><span>2026</span><span>USENIX Security</span></div>
           <h3>Memclave: Secure In-Memory Enclave for Untrusted Hosts</h3>
           <p class="authors"><strong>Amit Choudhari</strong>, Fabian van Rissenbeck, Christian Rossow</p>
-          <a class="paper-link" href="https://www.usenix.org/conference/usenixsecurity26/presentation/choudhari" rel="external">Paper <span aria-hidden="true">↗</span></a>
+          <a class="paper-link" href="https://www.usenix.org/conference/usenixsecurity26/presentation/choudhari" rel="external">paper ↗</a>
         </article>
-
         <article class="publication">
           <div class="pub-meta"><span>2025</span><span>ESORICS</span></div>
           <h3>NICraft: Malicious NIC Firmware-Based Cache Side-Channel Attack</h3>
           <p class="authors"><strong>Amit Choudhari</strong>, Shorya Kumar, Christian Rossow</p>
-          <a class="paper-link" href="https://doi.org/10.1007/978-3-032-07894-0_4" rel="external">Paper <span aria-hidden="true">↗</span></a>
+          <a class="paper-link" href="https://doi.org/10.1007/978-3-032-07894-0_4" rel="external">paper ↗</a>
         </article>
-
         <article class="publication">
           <div class="pub-meta"><span>2023</span><span>ACM CCS</span></div>
           <h3>FetchBench: Systematic Identification and Characterization of Proprietary Prefetchers</h3>
           <p class="authors">Till Schlüter, <strong>Amit Choudhari</strong>, Lorenz Hetterich, Leon Trampert, Hamed Nemati, Ahmad Ibrahim, Michael Schwarz, Christian Rossow, Nils Ole Tippenhauer</p>
-          <a class="paper-link" href="https://doi.org/10.1145/3576915.3623124" rel="external">Paper <span aria-hidden="true">↗</span></a>
+          <div class="pub-links"><a class="paper-link" href="https://doi.org/10.1145/3576915.3623124" rel="external">paper ↗</a><a class="paper-link" href="https://github.com/scy-phy/FetchBench" rel="external">code ↗</a></div>
         </article>
-
         <article class="publication">
           <div class="pub-meta"><span>2022</span><span>ASHES</span></div>
           <h3>SpecDefender: Transient Execution Attack Defender Using Performance Counters</h3>
           <p class="authors"><strong>Amit Choudhari</strong>, Sylvain Guilley, Khaled Karray</p>
-          <a class="paper-link" href="https://doi.org/10.1145/3560834.3563830" rel="external">Paper <span aria-hidden="true">↗</span></a>
+          <div class="pub-links"><a class="paper-link" href="https://doi.org/10.1145/3560834.3563830" rel="external">paper ↗</a><a class="paper-link" href="https://github.com/amit-choudhari/Specdefender" rel="external">code ↗</a></div>
         </article>
-
         <article class="publication">
           <div class="pub-meta"><span>2021</span><span>NICS</span></div>
           <h3>CRYScanner: Finding Cryptographic Libraries Misuse</h3>
           <p class="authors"><strong>Amit Choudhari</strong>, Sylvain Guilley, Khaled Karray</p>
-          <a class="paper-link" href="https://doi.org/10.1109/NICS54270.2021.9701469" rel="external">Paper <span aria-hidden="true">↗</span></a>
+          <a class="paper-link" href="https://doi.org/10.1109/NICS54270.2021.9701469" rel="external">paper ↗</a>
         </article>
-      </div>
-    </section>
-
-    <section id="background" class="section shell" aria-labelledby="background-title">
-      <div class="section-label">
-        <span>03</span>
-        <h2 id="background-title">Background</h2>
-      </div>
-      <div class="section-content background-grid">
-        <div>
-          <h3 class="subheading">Experience</h3>
-          <div class="timeline">
-            <div class="timeline-row">
-              <time>2022—now</time>
-              <div><strong>CISPA</strong><span>Research Assistant · PhD student</span></div>
-            </div>
-            <div class="timeline-row">
-              <time>2022</time>
-              <div><strong>ETH Zurich</strong><span>Academic Guest</span></div>
-            </div>
-            <div class="timeline-row">
-              <time>2021—22</time>
-              <div><strong>Secure-IC</strong><span>Master's Research</span></div>
-            </div>
-            <div class="timeline-row">
-              <time>2017—20</time>
-              <div><strong>Qualcomm</strong><span>Senior Software Engineer · Secure systems</span></div>
-            </div>
-            <div class="timeline-row">
-              <time>2015—17</time>
-              <div><strong>embedUR Systems</strong><span>Embedded Software Engineer</span></div>
-            </div>
-            <div class="timeline-row">
-              <time>2013—15</time>
-              <div><strong>IIT Madras</strong><span>Research Associate</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="subheading">Education</h3>
-          <div class="timeline">
-            <div class="timeline-row">
-              <time>2022—now</time>
-              <div><strong>PhD, System Security</strong><span>CISPA — Helmholtz Center for Information Security</span></div>
-            </div>
-            <div class="timeline-row">
-              <time>2020—22</time>
-              <div><strong>MSc, Cyberphysical Systems</strong><span>École Polytechnique (IP Paris)</span></div>
-            </div>
-            <div class="timeline-row">
-              <time>2009—13</time>
-              <div><strong>BE, Electronics Engineering</strong><span>Ramrao Adik Institute of Technology · Mumbai University</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact-section shell" aria-labelledby="contact-title">
-      <p class="kicker">Contact</p>
-      <h2 id="contact-title">Research, systems, and security.</h2>
-      <p>
-        The simplest way to reach me is by email at
-        <a href="mailto:amit.choudhari@cispa.de">amit.choudhari@cispa.de</a>.
-      </p>
-      <div class="hero-links">
-        <a href="https://github.com/amit-choudhari" rel="me external">GitHub</a>
-        <a href="https://orcid.org/0000-0002-5578-7061" rel="me external">ORCID</a>
-        <a href="https://www.linkedin.com/in/amit-choudhari-3b560a76" rel="me external">LinkedIn</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="shell">
-      <span>© 2026 Amit Choudhari</span>
-      <a href="#top">Back to top ↑</a>
+    <div class="shell footer-wrap">
+      <div>
+        <strong>Amit Choudhari</strong>
+        <a href="mailto:amit.choudhari@cispa.de">amit.choudhari@cispa.de</a>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/amit-choudhari" rel="me external">GitHub</a>
+        <a href="https://orcid.org/0000-0002-5578-7061" rel="me external">ORCID</a>
+        <a href="https://www.linkedin.com/in/amit-choudhari-3b560a76" rel="me external">LinkedIn</a>
+        <a href="#top">Top ↑</a>
+      </div>
     </div>
   </footer>
 </body>
