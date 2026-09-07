@@ -208,6 +208,22 @@ h1 {
   text-transform: none;
 }
 
+.section-label h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label h2::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 14px;
+  flex: 0 0 28px;
+  background: url("/signal.svg") center / contain no-repeat;
+  opacity: .62;
+}
+
 .focus-list { border-top: 1px solid var(--line); }
 .focus-row {
   display: grid;
