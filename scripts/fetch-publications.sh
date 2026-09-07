@@ -3,11 +3,18 @@ set -euo pipefail
 
 # Download author/open-access copies of publication PDFs and available slides
 # into the static site so achoudhari.com can serve them directly.
+#
+# Optional:
+#   bash scripts/fetch-publications.sh /path/to/specdefender-accepted-version.pdf
+#
+# This copies your local SpecDefender author/accepted version into the site
+# rather than depending on the ACM Digital Library at runtime.
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PAPERS="$ROOT/public/papers"
 SLIDES="$ROOT/public/slides"
 INDEX="$ROOT/public/index.html"
+SPECDEFENDER_SRC="${1:-}"
 
 mkdir -p "$PAPERS" "$SLIDES"
 
@@ -36,10 +43,14 @@ fetch "https://raw.githubusercontent.com/amit-choudhari/NICraft/main/slides/NICr
 fetch "https://tschlueter.com/research/publications/23-fetchbench/ccs23-fetchbench-slides.pdf" \
       "$SLIDES/fetchbench-ccs23.pdf"
 
-# SpecDefender does not currently have a verified public author PDF source in
-# the repositories checked. If you have your author copy, place it at:
-#   public/papers/specdefender-ashes22.pdf
-# before running this script; the link will then be added automatically.
+if [[ -n "$SPECDEFENDER_SRC" ]]; then
+  if [[ ! -f "$SPECDEFENDER_SRC" ]]; then
+    echo "SpecDefender PDF not found: $SPECDEFENDER_SRC" >&2
+    exit 1
+  fi
+  echo "Copying specdefender-ashes22.pdf"
+  cp "$SPECDEFENDER_SRC" "$PAPERS/specdefender-ashes22.pdf"
+fi
 
 python3 - "$INDEX" "$PAPERS/specdefender-ashes22.pdf" <<'PY'
 from pathlib import Path
@@ -61,10 +72,11 @@ replacements = {
 for old, new in replacements.items():
     text = text.replace(old, new)
 
-if specdefender.exists() and '/papers/specdefender-ashes22.pdf' not in text:
-    needle = '<div class="publication-links">\n            <a href="https://github.com/amit-choudhari/Specdefender" rel="external">GitHub</a>'
-    repl = '<div class="publication-links">\n            <a href="/papers/specdefender-ashes22.pdf">PDF</a>\n            <a href="https://github.com/amit-choudhari/Specdefender" rel="external">GitHub</a>'
-    text = text.replace(needle, repl)
+if specdefender.exists():
+    text = text.replace(
+        "https://dl.acm.org/doi/pdf/10.1145/3560834.3563830",
+        "/papers/specdefender-ashes22.pdf",
+    )
 
 index.write_text(text, encoding="utf-8")
 PY
