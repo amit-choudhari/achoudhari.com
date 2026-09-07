@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 42" role="img" aria-label="Cracked CPU leaking bits into a timing signal">
+  <g fill="none" stroke="#8f8f8b" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="7" y="6" width="34" height="30" rx="4" stroke-width="1.4"/>
+    <path d="M2 12h5M2 21h5M2 30h5M15 2v4M24 2v4M33 2v4M15 36v4M24 36v4M33 36v4M41 12h5M41 31h5" stroke-width="1.15" opacity=".72"/>
+    <rect x="12" y="10.5" width="23" height="21" rx="2" fill="#8f8f8b" fill-opacity=".18" stroke-width="1.1" opacity=".95"/>
+    <path d="M26.5 10.5l-3 5.2 4 3.4-4.6 4.4 4.5 3.5 3.7-2.8L35 22" stroke="#090909" stroke-width="4.1"/>
+    <path d="M35 22h7" stroke="#9fc5ff" stroke-width="1.35" opacity=".82"/>
+    <path d="M41 18.5v8" stroke="#090909" stroke-width="3.8"/>
+  </g>
+  <g fill="#9fc5ff" font-family="ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace" font-size="5.4" font-weight="700">
+    <text x="43.2" y="19.3">1</text>
+    <text x="48.7" y="24.2" opacity=".9">0</text>
+    <text x="54.2" y="20.7" opacity=".8">1</text>
+  </g>
+  <path d="M59.2 22h2l2.1-5.7 3.5 11.4 2.4-6h3.2l2.1-4.1 2.7 8.1H81" fill="none" stroke="#9fc5ff" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/>
+</svg>
