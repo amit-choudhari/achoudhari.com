@@ -16,6 +16,17 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <!-- Icons adapted from Font Awesome Free 7.3.1 (CC BY 4.0). -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-mail" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z"/></symbol>
+    <symbol id="icon-github" viewBox="0 0 512 512"><path d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5l0 52C323 491.5 335.5 500 350.5 494 441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5l0-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21z"/></symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 448 512"><path d="M100.3 448l-92.9 0 0-299.1 92.9 0 0 299.1zM53.8 108.1C24.1 108.1 0 83.5 0 53.8 0 39.5 5.7 25.9 15.8 15.8s23.8-15.8 38-15.8 27.9 5.7 38 15.8 15.8 23.8 15.8 38c0 29.7-24.1 54.3-53.8 54.3zM447.9 448l-92.7 0 0-145.6c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7l0 148.1-92.8 0 0-299.1 89.1 0 0 40.8 1.3 0c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3l0 164.3-.1 0z"/></symbol>
+    <symbol id="icon-orcid" viewBox="0 0 512 512"><path d="M294.7 188.2l-45.9 0 0 153.8 47.5 0c67.6 0 83.1-51.3 83.1-76.9 0-41.6-26.5-76.9-84.7-76.9zM256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496zM175.2 368.8l-29.8 0 0-207.5 29.8 0 0 207.5zM160.3 98.5a19.6 19.6 0 1 1 0 39.2 19.6 19.6 0 1 1 0-39.2zM300 369l-81 0 0-207.7 80.6 0c76.7 0 110.4 54.8 110.4 103.9 0 53.3-41.7 103.9-110 103.9z"/></symbol>
+    <symbol id="icon-scholar" viewBox="0 0 512 512"><path d="M390.9 298.5s0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64-.1 82.5-66.9 149.4-149.4 149.4S106.7 445.1 106.7 362.7c0-22.9 5.2-44.6 14.4-64 1.7-3.6 3.6-7.2 5.6-10.7 4.4-7.6 9.4-14.7 15-21.3 27.4-32.6 68.5-53.3 114.4-53.3 33.6 0 64.6 11.1 89.6 29.9 9.1 6.9 17.4 14.7 24.8 23.5 5.6 6.6 10.6 13.8 15 21.3 2 3.4 3.8 7 5.5 10.5l-.1-.1zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4l-94.7-77 256-202.7 256 202.7-94.7 77.1 0-.1z"/></symbol>
+    <symbol id="icon-pdf" viewBox="0 0 576 512"><path d="M96 0C60.7 0 32 28.7 32 64l0 384c0 35.3 28.7 64 64 64l80 0 0-112c0-35.3 28.7-64 64-64l176 0 0-165.5c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0L96 0zM357.5 176L264 176c-13.3 0-24-10.7-24-24L240 58.5 357.5 176zM240 380c-11 0-20 9-20 20l0 128c0 11 9 20 20 20s20-9 20-20l0-28 12 0c33.1 0 60-26.9 60-60s-26.9-60-60-60l-32 0zm32 80l-12 0 0-40 12 0c11 0 20 9 20 20s-9 20-20 20zm96-80c-11 0-20 9-20 20l0 128c0 11 9 20 20 20l32 0c28.7 0 52-23.3 52-52l0-64c0-28.7-23.3-52-52-52l-32 0zm20 128l0-88 12 0c6.6 0 12 5.4 12 12l0 64c0 6.6-5.4 12-12 12l-12 0zm88-108l0 128c0 11 9 20 20 20s20-9 20-20l0-44 28 0c11 0 20-9 20-20s-9-20-20-20l-28 0 0-24 28 0c11 0 20-9 20-20s-9-20-20-20l-48 0c-11 0-20 9-20 20z"/></symbol>
+    <symbol id="icon-slides" viewBox="0 0 512 512"><path d="M448 96l0 256-384 0 0-256 384 0zM64 32C28.7 32 0 60.7 0 96L0 352c0 35.3 28.7 64 64 64l144 0-16 48-72 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l272 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-72 0-16-48 144 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64L64 32z"/></symbol>
+  </svg>
+
   <header class="site-header">
     <div class="shell nav-wrap">
       <a class="wordmark" href="#top" aria-label="Amit Choudhari, home">AC</a>
@@ -45,24 +56,17 @@
           </p>
         </div>
         <p class="availability"><span aria-hidden="true"></span>Open to research and R&amp;D roles in systems, microarchitecture, and hardware security.</p>
-        <div class="hero-links" aria-label="Profile links">
-          <a href="mailto:amit.choudhari@cispa.de">Email</a>
-          <a href="https://github.com/amit-choudhari" rel="me external">GitHub</a>
-          <a href="https://orcid.org/0000-0002-5578-7061" rel="me external">ORCID</a>
-          <a href="https://dblp.org/pid/313/8120" rel="me external">DBLP</a>
-          <a href="https://www.linkedin.com/in/amit-choudhari-3b560a76" rel="me external">LinkedIn</a>
+        <div class="profile-links" aria-label="Profile links">
+          <a class="icon-link" href="mailto:amit.choudhari@cispa.de" aria-label="Email" title="Email"><svg class="icon"><use href="#icon-mail"/></svg></a>
+          <a class="icon-link" href="https://github.com/amit-choudhari" rel="me external" aria-label="GitHub" title="GitHub"><svg class="icon"><use href="#icon-github"/></svg></a>
+          <a class="icon-link" href="https://scholar.google.com/citations?user=-c1sFJEAAAAJ&amp;hl=en" rel="me external" aria-label="Google Scholar" title="Google Scholar"><svg class="icon"><use href="#icon-scholar"/></svg></a>
+          <a class="icon-link" href="https://orcid.org/0000-0002-5578-7061" rel="me external" aria-label="ORCID" title="ORCID"><svg class="icon"><use href="#icon-orcid"/></svg></a>
+          <a class="icon-link" href="https://www.linkedin.com/in/amit-choudhari-3b560a76" rel="me external" aria-label="LinkedIn" title="LinkedIn"><svg class="icon"><use href="#icon-linkedin"/></svg></a>
         </div>
       </div>
 
-      <aside class="portrait" aria-label="Portrait of Amit Choudhari" style="display:flex;justify-content:flex-end;align-items:center;">
-        <img
-          src="https://avatars.githubusercontent.com/u/6635887?v=4"
-          alt="Amit Choudhari"
-          width="168"
-          height="168"
-          referrerpolicy="no-referrer"
-          style="display:block;width:168px;height:168px;min-width:168px;min-height:168px;max-width:168px;max-height:168px;object-fit:cover;object-position:center;border:1px solid #343434;border-radius:9999px;"
-        >
+      <aside class="portrait" aria-label="Portrait of Amit Choudhari">
+        <img src="https://avatars.githubusercontent.com/u/6635887?v=4" alt="Amit Choudhari" width="168" height="168" referrerpolicy="no-referrer">
       </aside>
     </section>
 
@@ -99,9 +103,9 @@
           <h3>Memclave: Secure In-Memory Enclave for Untrusted Hosts</h3>
           <p class="authors"><strong>Amit Choudhari</strong>, Fabian van Rissenbeck, Christian Rossow</p>
           <p class="publication-summary">A software-only framework that adds code integrity and data confidentiality to commodity UPMEM PIM using a TPM-attested hypervisor and an in-PIM trusted loader.</p>
-          <div class="publication-links">
-            <a href="/papers/memclave-usenix26.pdf">PDF</a>
-            <a href="https://github.com/fabianvanrissenbeck/memclave" rel="external">GitHub</a>
+          <div class="publication-links" aria-label="Memclave resources">
+            <a class="resource-link" href="/papers/memclave-usenix26.pdf" aria-label="Memclave PDF" title="PDF"><svg class="icon"><use href="#icon-pdf"/></svg></a>
+            <a class="resource-link" href="https://github.com/fabianvanrissenbeck/memclave" rel="external" aria-label="Memclave GitHub repository" title="GitHub"><svg class="icon"><use href="#icon-github"/></svg></a>
           </div>
         </article>
 
@@ -110,10 +114,10 @@
           <h3>NICraft: Malicious NIC Firmware-Based Cache Side-Channel Attack</h3>
           <p class="authors"><strong>Amit Choudhari</strong>, Shorya Kumar, Christian Rossow</p>
           <p class="publication-summary">Uses Linux IP reassembly to let malicious NIC firmware mount cache side channels on commodity systems, including keystroke-activity detection at over 96% precision.</p>
-          <div class="publication-links">
-            <a href="/papers/nicraft-esorics25.pdf">PDF</a>
-            <a href="https://github.com/amit-choudhari/NICraft" rel="external">GitHub</a>
-            <a href="/slides/nicraft-esorics25.pdf">Slides</a>
+          <div class="publication-links" aria-label="NICraft resources">
+            <a class="resource-link" href="/papers/nicraft-esorics25.pdf" aria-label="NICraft PDF" title="PDF"><svg class="icon"><use href="#icon-pdf"/></svg></a>
+            <a class="resource-link" href="https://github.com/amit-choudhari/NICraft" rel="external" aria-label="NICraft GitHub repository" title="GitHub"><svg class="icon"><use href="#icon-github"/></svg></a>
+            <a class="resource-link" href="/slides/nicraft-esorics25.pdf" aria-label="NICraft slides" title="Slides"><svg class="icon"><use href="#icon-slides"/></svg></a>
           </div>
         </article>
 
@@ -122,10 +126,10 @@
           <h3>FetchBench: Systematic Identification and Characterization of Proprietary Prefetchers</h3>
           <p class="authors">Till Schlüter, <strong>Amit Choudhari</strong>, Lorenz Hetterich, Leon Trampert, Hamed Nemati, Ahmad Ibrahim, Michael Schwarz, Christian Rossow, Nils Ole Tippenhauer</p>
           <p class="publication-summary">A cross-platform framework for identifying and characterizing undocumented hardware prefetchers; evaluated on 19 ARM and x86-64 CPUs and used to uncover a replay-based prefetcher on Cortex-A72.</p>
-          <div class="publication-links">
-            <a href="/papers/fetchbench-ccs23.pdf">PDF</a>
-            <a href="https://github.com/scy-phy/FetchBench" rel="external">GitHub</a>
-            <a href="/slides/fetchbench-ccs23.pdf">Slides</a>
+          <div class="publication-links" aria-label="FetchBench resources">
+            <a class="resource-link" href="/papers/fetchbench-ccs23.pdf" aria-label="FetchBench PDF" title="PDF"><svg class="icon"><use href="#icon-pdf"/></svg></a>
+            <a class="resource-link" href="https://github.com/scy-phy/FetchBench" rel="external" aria-label="FetchBench GitHub repository" title="GitHub"><svg class="icon"><use href="#icon-github"/></svg></a>
+            <a class="resource-link" href="/slides/fetchbench-ccs23.pdf" aria-label="FetchBench slides" title="Slides"><svg class="icon"><use href="#icon-slides"/></svg></a>
           </div>
         </article>
 
@@ -134,9 +138,9 @@
           <h3>SpecDefender: Transient Execution Attack Defender Using Performance Counters</h3>
           <p class="authors"><strong>Amit Choudhari</strong>, Sylvain Guilley, Khaled Karray</p>
           <p class="publication-summary">Dynamically detects Spectre activity using hardware performance counters and restarts the application with Spectre defenses when an attack is detected.</p>
-          <div class="publication-links">
-            <a href="/papers/specdefender-ashes22.pdf">PDF</a>
-            <a href="https://github.com/amit-choudhari/Specdefender" rel="external">GitHub</a>
+          <div class="publication-links" aria-label="SpecDefender resources">
+            <a class="resource-link" href="/papers/specdefender-ashes22.pdf" aria-label="SpecDefender PDF" title="PDF"><svg class="icon"><use href="#icon-pdf"/></svg></a>
+            <a class="resource-link" href="https://github.com/amit-choudhari/Specdefender" rel="external" aria-label="SpecDefender GitHub repository" title="GitHub"><svg class="icon"><use href="#icon-github"/></svg></a>
           </div>
         </article>
 
@@ -145,9 +149,9 @@
           <h3>CRYScanner: Finding Cryptographic Libraries Misuse</h3>
           <p class="authors"><strong>Amit Choudhari</strong>, Sylvain Guilley, Khaled Karray</p>
           <p class="publication-summary">A generic analysis tool for detecting cryptographic-library misuse, including unsafe call sequences and parameters.</p>
-          <div class="publication-links">
-            <a href="/papers/cryscanner-nics21.pdf">PDF</a>
-            <a href="https://github.com/amit-choudhari/cryscanner" rel="external">GitHub</a>
+          <div class="publication-links" aria-label="CRYScanner resources">
+            <a class="resource-link" href="/papers/cryscanner-nics21.pdf" aria-label="CRYScanner PDF" title="PDF"><svg class="icon"><use href="#icon-pdf"/></svg></a>
+            <a class="resource-link" href="https://github.com/amit-choudhari/cryscanner" rel="external" aria-label="CRYScanner GitHub repository" title="GitHub"><svg class="icon"><use href="#icon-github"/></svg></a>
           </div>
         </article>
       </div>
@@ -218,11 +222,11 @@
         <strong>Amit Choudhari</strong>
         <a href="mailto:amit.choudhari@cispa.de">amit.choudhari@cispa.de</a>
       </div>
-      <div class="footer-links">
-        <a href="https://github.com/amit-choudhari" rel="me external">GitHub</a>
-        <a href="https://orcid.org/0000-0002-5578-7061" rel="me external">ORCID</a>
-        <a href="https://www.linkedin.com/in/amit-choudhari-3b560a76" rel="me external">LinkedIn</a>
-        <a href="#top">Top ↑</a>
+      <div class="profile-links footer-icons" aria-label="Profile links">
+        <a class="icon-link" href="https://github.com/amit-choudhari" rel="me external" aria-label="GitHub" title="GitHub"><svg class="icon"><use href="#icon-github"/></svg></a>
+        <a class="icon-link" href="https://scholar.google.com/citations?user=-c1sFJEAAAAJ&amp;hl=en" rel="me external" aria-label="Google Scholar" title="Google Scholar"><svg class="icon"><use href="#icon-scholar"/></svg></a>
+        <a class="icon-link" href="https://orcid.org/0000-0002-5578-7061" rel="me external" aria-label="ORCID" title="ORCID"><svg class="icon"><use href="#icon-orcid"/></svg></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/amit-choudhari-3b560a76" rel="me external" aria-label="LinkedIn" title="LinkedIn"><svg class="icon"><use href="#icon-linkedin"/></svg></a>
       </div>
     </div>
   </footer>
