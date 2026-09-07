@@ -11,11 +11,13 @@
     <path d="M41 18.3v7.2" stroke="#090909" stroke-width="3.1"/>
   </g>
 
+  <!-- Leaked state starts as small binary marks and gradually dissolves into the timing trace. -->
   <g fill="none" stroke="#9fc5ff" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M36.7 20l1.2-1v5M36.9 24h2.3" stroke-width="1.15"/>
-    <rect x="42.4" y="19.6" width="3.5" height="4.8" rx="1" stroke-width="1.05"/>
-    <path d="M49.3 20l1.2-1v5M49.5 24h2.3" stroke-width="1.15" opacity=".86"/>
+    <path d="M36.9 20.5l.75-.65v3.25" stroke-width=".78" opacity=".82"/>
+    <rect x="41.1" y="20.15" width="2.35" height="3.1" rx=".72" stroke-width=".72" opacity=".72"/>
+    <path d="M46.5 20.65l.7-.6v2.9" stroke-width=".72" opacity=".62"/>
+    <rect x="50.35" y="20.45" width="1.95" height="2.6" rx=".62" stroke-width=".66" opacity=".48"/>
   </g>
 
-  <path d="M55 22h2.1l2.1-5.7 3.5 11.4 2.4-6h3.2l2.1-4.1 2.7 8.1H81" fill="none" stroke="#9fc5ff" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/>
+  <path d="M53.6 22h2.1l2.05-5.45 3.35 10.9 2.3-5.75h3.05l2.05-3.9 2.55 7.7H75" fill="none" stroke="#9fc5ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
 </svg>
