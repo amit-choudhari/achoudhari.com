@@ -1,51 +1,33 @@
 # achoudhari.com
 
-Minimal static personal site for Amit Choudhari.
+Personal research website for Amit Choudhari.
+
+The site is a small static site deployed from `main` to Cloudflare Workers.
+
+## Structure
+
+- `public/index.html` — homepage content
+- `public/style.css` — site styling
+- `public/papers/` — self-hosted publication PDFs
+- `public/slides/` — self-hosted presentation slides
+- `wrangler.jsonc` — Cloudflare Workers static-assets configuration
 
 ## Local preview
-
-From the repository root:
 
 ```bash
 npx wrangler dev
 ```
 
-Wrangler will print a local URL.
+## Deployment
 
-## One-time local deploy
+GitHub is connected to Cloudflare Workers. Pushing to `main` triggers a production deployment of the `public/` directory to `achoudhari.com`.
+
+A manual deployment can also be run with:
 
 ```bash
 npx wrangler deploy
 ```
 
-On first use, Wrangler will ask you to authenticate with Cloudflare.
+## Publication assets
 
-## Recommended deployment: GitHub -> Cloudflare Workers
-
-1. Create a GitHub repository, for example `achoudhari.com`.
-2. Push this repository to GitHub.
-3. In Cloudflare, open **Workers & Pages**.
-4. Select **Create application**.
-5. Under **Import a repository**, choose **Get started**.
-6. Connect GitHub and select this repository.
-7. Use:
-   - Production branch: `main`
-   - Build command: leave blank
-   - Deploy command: `npx wrangler deploy` (the default)
-   - Root directory: repository root
-8. Deploy. Cloudflare will first give the site a `*.workers.dev` URL.
-9. Open the deployed Worker:
-   **Settings -> Domains & Routes -> Add -> Custom Domain**
-10. Add `achoudhari.com`.
-
-Cloudflare will create the required DNS record and certificate for the custom
-domain.
-
-After Git integration is connected, pushing to `main` deploys the site
-automatically.
-
-## Edit the site
-
-- `public/index.html` — content
-- `public/style.css` — appearance
-- `wrangler.jsonc` — Cloudflare deployment configuration
+Publication PDFs and slides are committed directly to this repository so links on the website remain under `achoudhari.com` rather than depending on publisher or institutional URLs.
