@@ -1,0 +1,30 @@
+name: Publish Memclave PDF
+
+on:
+  push:
+    paths:
+      - 'upload-memclave/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reconstruct and publish PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat upload-memclave/chunk_* | base64 -d > public/papers/memclave-usenix26.pdf
+          echo '78f69b4ebf8c3bbdc127dffbd5edffaea626254eba7b27872110b3def85a84f6  public/papers/memclave-usenix26.pdf' | sha256sum -c -
+          rm -rf upload-memclave
+          rm -f .github/workflows/publish-memclave.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/papers/memclave-usenix26.pdf upload-memclave .github/workflows/publish-memclave.yml
+          git commit -m 'Update Memclave paper PDF'
+          git push
