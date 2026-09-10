@@ -72,58 +72,99 @@
 
   const style = document.createElement("style");
   style.textContent = `
-    .bibtex-copy {
-      padding: 0;
-      font: inherit;
+    .publication-links { position: relative; }
+
+    .bibtex-trigger {
+      width: auto;
+      min-width: 60px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: .68rem;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: .01em;
       cursor: pointer;
       appearance: none;
       -webkit-appearance: none;
     }
-    .bibtex-mark {
-      display: block;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1;
-      transform: translateY(-.3px);
-    }
-    .bibtex-toast {
-      position: fixed;
-      left: 50%;
-      bottom: 24px;
-      z-index: 50;
-      transform: translate(-50%, 10px);
-      padding: 8px 11px;
+
+    .bibtex-popover {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 10px);
+      z-index: 30;
+      width: min(430px, calc(100vw - 40px));
+      padding: 12px;
       border: 1px solid #343434;
-      border-radius: 7px;
+      border-radius: 9px;
       background: #111;
-      color: #d8d8d5;
-      font-size: .78rem;
-      line-height: 1.2;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 140ms ease, transform 140ms ease;
+      box-shadow: 0 14px 36px rgba(0,0,0,.36);
     }
-    .bibtex-toast.visible {
-      opacity: 1;
-      transform: translate(-50%, 0);
+
+    .bibtex-popover[hidden] { display: none; }
+
+    .bibtex-popover-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 9px;
+    }
+
+    .bibtex-popover-title {
+      color: #d4d4d1;
+      font-size: .75rem;
+      font-weight: 650;
+    }
+
+    .bibtex-copy-button {
+      padding: 4px 8px;
+      border: 1px solid #343434;
+      border-radius: 6px;
+      background: transparent;
+      color: #a0a09b;
+      font: inherit;
+      font-size: .72rem;
+      cursor: pointer;
+      transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
+    }
+
+    .bibtex-copy-button:hover,
+    .bibtex-copy-button:focus-visible {
+      color: #9fc5ff;
+      border-color: #5c718e;
+      background: rgba(159,197,255,.045);
+    }
+
+    .bibtex-copy-button:focus-visible {
+      outline: 2px solid #9fc5ff;
+      outline-offset: 2px;
+    }
+
+    .bibtex-code {
+      max-height: 250px;
+      margin: 0;
+      padding: 10px;
+      overflow: auto;
+      border: 1px solid #252525;
+      border-radius: 6px;
+      background: #0b0b0b;
+      color: #bdbdb9;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: .72rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 620px) {
+      .bibtex-popover {
+        width: min(430px, calc(100vw - 38px));
+      }
     }
   `;
   document.head.appendChild(style);
-
-  const toast = document.createElement("div");
-  toast.className = "bibtex-toast";
-  toast.setAttribute("role", "status");
-  toast.setAttribute("aria-live", "polite");
-  document.body.appendChild(toast);
-  let toastTimer;
-
-  function showToast(message) {
-    toast.textContent = message;
-    toast.classList.add("visible");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove("visible"), 1500);
-  }
 
   async function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
@@ -142,26 +183,99 @@
     if (!ok) throw new Error("copy failed");
   }
 
-  document.querySelectorAll(".publication").forEach((publication) => {
+  let openPopover = null;
+  let openTrigger = null;
+
+  function closePopover({ restoreFocus = false } = {}) {
+    if (!openPopover || !openTrigger) return;
+    openPopover.hidden = true;
+    openTrigger.setAttribute("aria-expanded", "false");
+    if (restoreFocus) openTrigger.focus();
+    openPopover = null;
+    openTrigger = null;
+  }
+
+  document.querySelectorAll(".publication").forEach((publication, index) => {
     const title = publication.querySelector("h3")?.textContent.trim();
     const entry = bibtex[title];
     const links = publication.querySelector(".publication-links");
     if (!entry || !links) return;
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "resource-link bibtex-copy";
-    button.title = "Copy BibTeX";
-    button.setAttribute("aria-label", `Copy BibTeX for ${title}`);
-    button.innerHTML = '<span class="bibtex-mark" aria-hidden="true">@</span>';
-    button.addEventListener("click", async () => {
+    const popoverId = `bibtex-popover-${index + 1}`;
+
+    const trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "resource-link bibtex-trigger";
+    trigger.textContent = "BibTeX";
+    trigger.title = "Show BibTeX";
+    trigger.setAttribute("aria-label", `Show BibTeX for ${title}`);
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-controls", popoverId);
+
+    const popover = document.createElement("div");
+    popover.id = popoverId;
+    popover.className = "bibtex-popover";
+    popover.hidden = true;
+    popover.setAttribute("role", "dialog");
+    popover.setAttribute("aria-label", `BibTeX citation for ${title}`);
+
+    const head = document.createElement("div");
+    head.className = "bibtex-popover-head";
+
+    const label = document.createElement("span");
+    label.className = "bibtex-popover-title";
+    label.textContent = "BibTeX";
+
+    const copyButton = document.createElement("button");
+    copyButton.type = "button";
+    copyButton.className = "bibtex-copy-button";
+    copyButton.textContent = "Copy";
+    copyButton.setAttribute("aria-label", `Copy BibTeX for ${title}`);
+
+    const pre = document.createElement("pre");
+    pre.className = "bibtex-code";
+    const code = document.createElement("code");
+    code.textContent = entry;
+    pre.appendChild(code);
+
+    head.append(label, copyButton);
+    popover.append(head, pre);
+    links.append(trigger, popover);
+
+    trigger.addEventListener("click", () => {
+      const isOpen = openPopover === popover;
+      closePopover();
+      if (isOpen) return;
+
+      popover.hidden = false;
+      trigger.setAttribute("aria-expanded", "true");
+      openPopover = popover;
+      openTrigger = trigger;
+    });
+
+    copyButton.addEventListener("click", async () => {
+      const original = copyButton.textContent;
       try {
         await copyText(entry);
-        showToast("BibTeX copied");
+        copyButton.textContent = "Copied";
       } catch {
-        showToast("Could not copy BibTeX");
+        copyButton.textContent = "Copy failed";
       }
+      setTimeout(() => {
+        copyButton.textContent = original;
+      }, 1400);
     });
-    links.appendChild(button);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!openPopover || !openTrigger) return;
+    if (openPopover.contains(event.target) || openTrigger.contains(event.target)) return;
+    closePopover();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && openPopover) {
+      closePopover({ restoreFocus: true });
+    }
   });
 })();
