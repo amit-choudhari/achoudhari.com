@@ -1,4 +1,6 @@
 (() => {
+  // Citation metadata follows the authoritative venue/publisher records.
+  // Entries intentionally omit abstracts and keywords for clean copy/paste use.
   const bibtex = {
     "Memclave: Secure In-Memory Enclave for Untrusted Hosts": `@inproceedings{choudhari2026memclave,
   author = {Amit Choudhari and Fabian van Rissenbeck and Christian Rossow},
@@ -16,22 +18,27 @@
     "NICraft: Malicious NIC Firmware-Based Cache Side-Channel Attack": `@inproceedings{choudhari2025nicraft,
   author = {Choudhari, Amit and Kumar, Shorya and Rossow, Christian},
   title = {NICraft: Malicious NIC Firmware-Based Cache Side-Channel Attack},
-  booktitle = {Computer Security -- ESORICS 2025},
+  booktitle = {Computer Security -- ESORICS 2025: 30th European Symposium on Research in Computer Security, Toulouse, France, September 22--24, 2025, Proceedings, Part III},
   year = {2025},
+  isbn = {978-3-032-07893-3},
+  publisher = {Springer-Verlag},
+  address = {Berlin, Heidelberg},
   pages = {64--83},
-  publisher = {Springer},
   doi = {10.1007/978-3-032-07894-0_4},
   url = {https://doi.org/10.1007/978-3-032-07894-0_4}
 }`,
 
     "FetchBench: Systematic Identification and Characterization of Proprietary Prefetchers": `@inproceedings{schlueter2023fetchbench,
-  author = {Schl{\\\"u}ter, Till and Choudhari, Amit and Hetterich, Lorenz and Trampert, Leon and Nemati, Hamed and Ibrahim, Ahmad and Schwarz, Michael and Rossow, Christian and Tippenhauer, Nils Ole},
+  author = {Schlüter, Till and Choudhari, Amit and Hetterich, Lorenz and Trampert, Leon and Nemati, Hamed and Ibrahim, Ahmad and Schwarz, Michael and Rossow, Christian and Tippenhauer, Nils Ole},
   title = {FetchBench: Systematic Identification and Characterization of Proprietary Prefetchers},
   booktitle = {Proceedings of the 2023 ACM SIGSAC Conference on Computer and Communications Security},
   year = {2023},
-  pages = {975--989},
+  isbn = {9798400700507},
   publisher = {Association for Computing Machinery},
   address = {New York, NY, USA},
+  pages = {975--989},
+  location = {Copenhagen, Denmark},
+  series = {CCS '23},
   doi = {10.1145/3576915.3623124},
   url = {https://doi.org/10.1145/3576915.3623124}
 }`,
@@ -41,9 +48,12 @@
   title = {SpecDefender: Transient Execution Attack Defender Using Performance Counters},
   booktitle = {Proceedings of the 2022 Workshop on Attacks and Solutions in Hardware Security},
   year = {2022},
-  pages = {15--24},
+  isbn = {9781450398848},
   publisher = {Association for Computing Machinery},
   address = {New York, NY, USA},
+  pages = {15--24},
+  location = {Los Angeles, CA, USA},
+  series = {ASHES '22},
   doi = {10.1145/3560834.3563830},
   url = {https://doi.org/10.1145/3560834.3563830}
 }`,
