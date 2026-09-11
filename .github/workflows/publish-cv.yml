@@ -3,7 +3,7 @@ name: Publish CV
 on:
   push:
     paths:
-      - 'cv-staging/READY'
+      - 'cv-final/READY'
 
 permissions:
   contents: write
@@ -16,20 +16,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Verify and publish CV
+      - name: Publish verified CV and clean staging
         shell: bash
         run: |
           set -euo pipefail
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq poppler-utils >/dev/null
 
           mkdir -p public/cv
-          cat cv-staging/chunk_* | base64 -d > public/cv/amit-choudhari-cv.pdf
-          pdfinfo public/cv/amit-choudhari-cv.pdf >/dev/null
-          pdftotext -layout public/cv/amit-choudhari-cv.pdf /tmp/cv.txt
-          echo '5410af032c4714b0c2f3df6784ccd35dbd3501b4a5a752cabc8f2c41e9382ab4  /tmp/cv.txt' | sha256sum -c -
+          cat cv-final/chunk_* | base64 -d | gzip -d > public/cv/amit-choudhari-cv.pdf
+          echo 'c0ba55efc3661a1a91e0b279b4a9b6067ce0939d872c6642dc75a28275d252cb  public/cv/amit-choudhari-cv.pdf' | sha256sum -c -
 
-          # Restore the complete site page, then apply the final availability wording and CV icon.
+          # Rebuild from the reviewed site version and apply the final CV presentation.
           git show ee8f753d37bea79168e3b2c68ce90756dee48ad8:public/index.html > public/index.html
 
           python3 - <<'PY'
@@ -38,12 +34,13 @@ jobs:
 
           p = Path('public/index.html')
           s = p.read_text()
+
           s = s.replace(
               'Available from January 2027 · Open to research and R&amp;D roles in systems, microarchitecture, and hardware security.',
               'Open to research and R&amp;D roles beginning in 2027 in systems, microarchitecture, and hardware security.'
           )
 
-          cv_symbol = '''    <symbol id="icon-cv" viewBox="0 0 24 24"><path d="M6.5 3.5h7l4 4v13h-11z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/><path d="M13.5 3.5v4h4" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/><text x="12" y="16.4" text-anchor="middle" fill="currentColor" stroke="none" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="7.3" font-weight="750" letter-spacing="-.35">CV</text></symbol>\n'''
+          cv_symbol = '''    <symbol id="icon-cv" viewBox="0 0 24 24"><path d="M5.5 3.5h8l5 5v12h-13z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/><path d="M13.5 3.5v5h5" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/><text x="12" y="16.6" text-anchor="middle" fill="currentColor" stroke="none" font-family="Arial, sans-serif" font-size="7.7" font-weight="700">CV</text></symbol>\n'''
           marker = '    <symbol id="icon-slides"'
           if 'id="icon-cv"' not in s:
               s = s.replace(marker, cv_symbol + marker, 1)
@@ -53,14 +50,16 @@ jobs:
               r'\1#icon-cv\2',
               s,
           )
+
           p.write_text(s)
           PY
 
-          rm -rf cv-staging cv-upload3
+          rm -rf cv-final cv-staging cv-upload3 cv-upload4 cv-upload5 deploy-staging index-staging
+          rm -f cv-upload-direct-test.txt
           rm -f .github/workflows/publish-cv.yml
 
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -m 'Publish CV and refine availability'
+          git commit -m 'Publish CV and use CV icon'
           git push
