@@ -3,7 +3,7 @@ name: Publish CV
 on:
   push:
     paths:
-      - 'cv-upload3/READY'
+      - 'cv-staging/READY'
 
 permissions:
   contents: write
@@ -16,12 +16,20 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Restore page, publish CV, and clean staging
+      - name: Verify and publish CV
         shell: bash
         run: |
           set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils >/dev/null
 
-          # Restore the last complete website page before the temporary staging edit.
+          mkdir -p public/cv
+          cat cv-staging/chunk_* | base64 -d > public/cv/amit-choudhari-cv.pdf
+          pdfinfo public/cv/amit-choudhari-cv.pdf >/dev/null
+          pdftotext -layout public/cv/amit-choudhari-cv.pdf /tmp/cv.txt
+          echo '5410af032c4714b0c2f3df6784ccd35dbd3501b4a5a752cabc8f2c41e9382ab4  /tmp/cv.txt' | sha256sum -c -
+
+          # Restore the complete site page, then apply the final availability wording and CV icon.
           git show ee8f753d37bea79168e3b2c68ce90756dee48ad8:public/index.html > public/index.html
 
           python3 - <<'PY'
@@ -30,7 +38,6 @@ jobs:
 
           p = Path('public/index.html')
           s = p.read_text()
-
           s = s.replace(
               'Available from January 2027 · Open to research and R&amp;D roles in systems, microarchitecture, and hardware security.',
               'Open to research and R&amp;D roles beginning in 2027 in systems, microarchitecture, and hardware security.'
@@ -46,15 +53,10 @@ jobs:
               r'\1#icon-cv\2',
               s,
           )
-
           p.write_text(s)
           PY
 
-          mkdir -p public/cv
-          cat cv-upload3/chunk_* | base64 -d > public/cv/amit-choudhari-cv.pdf
-          echo 'c0ba55efc3661a1a91e0b279b4a9b6067ce0939d872c6642dc75a28275d252cb  public/cv/amit-choudhari-cv.pdf' | sha256sum -c -
-
-          rm -rf cv-upload3 cv-staging
+          rm -rf cv-staging cv-upload3
           rm -f .github/workflows/publish-cv.yml
 
           git config user.name 'github-actions[bot]'
