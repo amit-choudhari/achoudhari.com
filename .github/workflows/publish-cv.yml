@@ -1,0 +1,64 @@
+name: Publish CV
+
+on:
+  push:
+    paths:
+      - 'cv-upload3/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore page, publish CV, and clean staging
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Restore the last complete website page before the temporary staging edit.
+          git show ee8f753d37bea79168e3b2c68ce90756dee48ad8:public/index.html > public/index.html
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('public/index.html')
+          s = p.read_text()
+
+          s = s.replace(
+              'Available from January 2027 · Open to research and R&amp;D roles in systems, microarchitecture, and hardware security.',
+              'Open to research and R&amp;D roles beginning in 2027 in systems, microarchitecture, and hardware security.'
+          )
+
+          cv_symbol = '''    <symbol id="icon-cv" viewBox="0 0 24 24"><path d="M6.5 3.5h7l4 4v13h-11z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/><path d="M13.5 3.5v4h4" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/><text x="12" y="16.4" text-anchor="middle" fill="currentColor" stroke="none" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="7.3" font-weight="750" letter-spacing="-.35">CV</text></symbol>\n'''
+          marker = '    <symbol id="icon-slides"'
+          if 'id="icon-cv"' not in s:
+              s = s.replace(marker, cv_symbol + marker, 1)
+
+          s = re.sub(
+              r'(<a class="icon-link" href="/cv/amit-choudhari-cv\.pdf"[^>]*><svg class="icon"><use href=")#icon-pdf("/></svg></a>)',
+              r'\1#icon-cv\2',
+              s,
+          )
+
+          p.write_text(s)
+          PY
+
+          mkdir -p public/cv
+          cat cv-upload3/chunk_* | base64 -d > public/cv/amit-choudhari-cv.pdf
+          echo 'c0ba55efc3661a1a91e0b279b4a9b6067ce0939d872c6642dc75a28275d252cb  public/cv/amit-choudhari-cv.pdf' | sha256sum -c -
+
+          rm -rf cv-upload3 cv-staging
+          rm -f .github/workflows/publish-cv.yml
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Publish CV and refine availability'
+          git push
